@@ -1,0 +1,11 @@
+<div *ngFor="let info of worldChampionship" style="text-align:center; border: 1px solid green">
+    <p>Team: {{ info.team }}</p>
+    <div>Urls:
+        <div *ngFor="let instance of info.instances">
+            <a href="{{ apiService.getUrl(instance.location, instance.year) }}">{{ instance.year }}</a>
+        </div>
+    </div>
+</div>
+<div *ngIf="worldChampionship.length === 0">
+    <p>There is no team called {{ this.team }}</p>
+</div>
